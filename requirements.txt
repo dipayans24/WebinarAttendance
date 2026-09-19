@@ -1,0 +1,9 @@
+streamlit
+pandas
+gdown
+gspread
+google-api-python-client
+google-auth
+stqdm
+gspread-dataframe
+oauth2client
