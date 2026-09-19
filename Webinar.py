@@ -386,11 +386,8 @@ def checkOptionalCase(BatchesWebinar, concatRequired, WebinarDict, WebinarList, 
   if len(updatedBatchesWebinar) > 0:
     BatchesWebinar = NewBatchesWebinar
 
-  st.write(f"Files need to concatenated {len(BatchesWebinar.get(ProcessBatch))}")
-
-#   for i in GeneratedFiles:
-#     if i not in BatchesWebinar.get(ProcessBatch):
-#         st.write(i)
+  st.write(f"Total Files {len(BatchesWebinar.get(ProcessBatch))}")
+  st.write(len([i for i in GeneratedFiles if i not in BatchesWebinar.get(ProcessBatch)]))
 
   return BatchesWebinar
 
