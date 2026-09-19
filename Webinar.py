@@ -48,7 +48,7 @@ def downloadFiles(ProcessBatch, MainDataFileDate, clearPreviousData, GdriveCrede
   service = build('drive', 'v3', credentials=creds)
 
   st.write("Downloading the attendee reports....")
-  filePaths, service  = getFilefromGdrive('1hmBMW_SkVUQeckKfFOjZdnBXJKDFTZUN', service, ProcessBatch, clearPreviousData)
+  filePaths, service  = getFilefromGdrive('0ADY0C0Grd3teUk9PVA', service, ProcessBatch, clearPreviousData)
 
   #if len(glob.glob("Main*.xlsx")) == 0:
   st.write("Downloading the Main File....")
@@ -208,20 +208,6 @@ def getWebinarSheet(ProcessBatch, credential_Upload):
     #output_filename = "WebinarDetails"
   output_filename = "WebinarDetails.xlsx"
     #   # Remove existing file if it exists to avoid conflicts
-
-    #     # sheet_id = "1wUviIGWnfOeTTYW8dlnIspAi2G91mgMiP607i6PGncE"
-    #     # url = f"https://drive.google.com/uc?id={sheet_id}"
-    #     # gdown.download(url, output_filename, quiet=True)
-
-    #   scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    #   creds = ServiceAccountCredentials.from_json_keyfile_name(credential_Upload, scope)
-    #   client = gspread.authorize(creds)
-
-    #   sheet_id = "1wUviIGWnfOeTTYW8dlnIspAi2G91mgMiP607i6PGncE"
-    #   workbook = client.open_by_key(sheet_id)
-    #   values = workbook.worksheet("WebinarDetails").get_all_values()
-    #   records = workbook.worksheet("WebinarDetails").get_all_records()
-    # sheet_name = datetime.now().strftime("%b-%Y")
 
   # Read the downloaded XLSX file into a pandas DataFrame
   try:
