@@ -716,7 +716,7 @@ with col1:
 if MainDataFileDate and GdriveCredentials and credential_Upload:
     credential_Upload = save_upload(credential_Upload)
     WebinarDetails = check_session_state("1wUviIGWnfOeTTYW8dlnIspAi2G91mgMiP607i6PGncE", "WebinarDetails", "WebinarDetails", credential_Upload, clearPreviousData)
-    WebinarDetails = WebinarDetails[WebinarDetails["Cancelled"] != "Yes"]
+    WebinarDetails = WebinarDetails[(WebinarDetails["Cancelled"] != "Yes") & (WebinarDetails["WebinarID"] != "") & (~WebinarDetails["WebinarID"].isna())]
     WebinarDetails["WebinarID"] = WebinarDetails["WebinarID"].str.replace(r"\W", "", regex=True)
     WebinarDetails.drop_duplicates(subset=WebinarDetails.columns, inplace=True)
 
