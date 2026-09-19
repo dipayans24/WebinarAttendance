@@ -503,12 +503,12 @@ def generateData(MainFilePath, BatchesWebinar, ProcessBatch, BacthesWO_W):
 
       final_df["Whatsaap Number"] = final_df["Whatsaap Number"].astype(float, errors="ignore")
 
-      final_df.drop(columns="AttendancePercentage", inplace=True, errors="ignore")
+      final_df.drop(columns="AttendancePct", inplace=True, errors="ignore")
 
       #Generates the Attendance Percentage for each customer
       _att_cols = final_df.iloc[:, indexer+1:]
       _present_counts = (_att_cols != "Absent").sum(axis=1)
-      final_df["AttendancePercentage"] = (_present_counts / _att_cols.shape[1] * 100).round(2).astype(str) + "%"
+      final_df["AttendancePct"] = (_present_counts / _att_cols.shape[1] * 100).round(2).astype(str) + "%"
 
       #Generates the Attendance Percentage for each session
       _session_cols = final_df.columns[indexer+1:]
@@ -520,11 +520,11 @@ def generateData(MainFilePath, BatchesWebinar, ProcessBatch, BacthesWO_W):
       _session_pct = (_session_pct / len(_valid_df) * 100).round(2).astype(str) + "%"
       final_df.loc[len(final_df), _session_cols] = _session_pct
 
-      final_df.loc[len(final_df)-1, "AttendancePercentage"] = pd.NA
+      final_df.loc[len(final_df)-1, "AttendancePct"] = pd.NA
 
       MainFileOutputName = f"{MainFileBatches}_AttendanceRecord.xlsx"
 
-      col = final_df.columns[indexer+1:-1] #Gets the column after the batch name and before the AttendancePercentage for sorting
+      col = final_df.columns[indexer+1:-1] #Gets the column after the batch name and before the AttendancePct for sorting
       sorted_col = sorted(col, key=lambda x: datetime.strptime(x, "%d%b%Y"), reverse=True) #Sorts the column
       final_df = final_df.reindex(labels=final_df.columns[:indexer+1].to_list()+sorted_col+[final_df.columns[-1]] , axis="columns") #Reorders the columns
 
