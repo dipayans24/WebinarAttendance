@@ -7,3 +7,4 @@ google-auth
 stqdm
 gspread-dataframe
 oauth2client
+openpyxl
