@@ -720,7 +720,8 @@ if MainDataFileDate and GdriveCredentials and credential_Upload:
     WebinarDetails["WebinarID"] = WebinarDetails["WebinarID"].str.replace(r"\W", "", regex=True)
     WebinarDetails.drop_duplicates(subset=WebinarDetails.columns, inplace=True)
 
-    Batches = WebinarDetails["BatchName"].apply(lambda x : "AI CAP B0" + re.sub(r"\D",  "",x) if len(x) == 9 else x).sort_values(ascending=False).unique()
+    uniqueBatches = WebinarDetails["BatchName"].sort_values(ascending=False).unique()
+    Batches =  dict(sorted({"AI CAP B0" + re.sub(r"\D",  "",x) if len(x) == 9 else x: x for x in uniqueBatches}.items()))
 
     BatchesList = st.multiselect(label="Select the ProcessBatch", options= Batches, max_selections=5)
 
@@ -734,6 +735,7 @@ if MainDataFileDate and GdriveCredentials and credential_Upload:
         BacthesWO_W = [f"AI CAP B{i}" for i in range(10,90)]
         GdriveCredentials = save_upload(GdriveCredentials)
         #st.session_state["GdriveCredentials"] = GdriveCredentials
+        BatchesList = [Batches[i] for i in BatchesList]
         for ProcessBatch in BatchesList:
             with st.status(f"Processing for Batch {ProcessBatch}....") as status:
                 filePaths, MainFilePath = downloadFiles(ProcessBatch,MainDataFileDate , clearPreviousData, GdriveCredentials)            
