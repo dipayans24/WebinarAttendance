@@ -698,7 +698,7 @@ def check_session_state(sheet_id  ,sessionVarName , sheet_name , credential_Uplo
 
 st.set_page_config("Webinar Attendance", layout="wide")
 st.header("📊 Webinar Attendance", divider=True, text_alignment="center")
-MainDataFileDate =  str(st.date_input("Select the Last Friday date",value=last_friday()))
+MainDataFileDate =  str(st.date_input("Select the Main Data date",value=last_friday()))
 
 col1, col2 = st.columns(2)
 
@@ -723,7 +723,7 @@ if MainDataFileDate and GdriveCredentials and credential_Upload:
     uniqueBatches = WebinarDetails["BatchName"].sort_values(ascending=False).unique()
     Batches =  dict(sorted({"AI CAP B0" + re.sub(r"\D",  "",x) if len(x) == 9 else x: x for x in uniqueBatches}.items()))
 
-    BatchesList = st.multiselect(label="Select the ProcessBatch", options= Batches, max_selections=5)
+    BatchesList = st.multiselect(label="Select the Batch(es) to be Processed (Max 5).", options= Batches, max_selections=5)
 
     genbtn = st.button("Generate Data", type="primary", on_click=None )
 
