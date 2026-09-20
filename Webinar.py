@@ -721,7 +721,7 @@ if MainDataFileDate and GdriveCredentials and credential_Upload:
     WebinarDetails.drop_duplicates(subset=WebinarDetails.columns, inplace=True)
 
     uniqueBatches = WebinarDetails["BatchName"].sort_values(ascending=False).unique()
-    Batches =  dict(sorted({"AI CAP B0" + re.sub(r"\D",  "",x) if len(x) == 9 else x: x for x in uniqueBatches}.items()))
+    Batches =  dict(sorted({"AI CAP B0" + re.sub(r"\D",  "",x) if len(x) == 9 else x: x for x in uniqueBatches}.items(), reverse=True))
 
     BatchesList = st.multiselect(label="Select the Batch(es) to be Processed (Max 5).", options= Batches, max_selections=5)
 
