@@ -771,20 +771,20 @@ if MainDataFileDate and GdriveCredentials and credential_Upload:
 
              
 else:
-    pass
-    #  with st.status("Links", expanded=False):
-    #     col1, col2, col3, col4, col5, col6  = st.columns(6, vertical_alignment = "center",  width="stretch") 
+
+      with st.status("Links", expanded=False):
+         col1, col2, col3, col4, col5, col6  = st.columns(6, vertical_alignment = "center",  width="stretch") 
      
-    #     with col1:
-    #        st.link_button("Open 10xStats", "https://10xstats.com/", width  = "stretch")
-    #     with col2:
-    #        st.link_button("Open DirectUS", "https://directus-production-62b2.up.railway.app/admin/users/", width  = "stretch") 
-    #     with col3:
-    #        st.link_button("Open MEGA Exotic", "https://megaexotic.streamlit.app/", width  = "stretch") 
-    #     with col4:
-    #        st.link_button("Open MEGA AC", "https://megaac.streamlit.app/", width  = "stretch") 
-    #     with col5:
-    #        st.link_button("Open GdriveUpload", "https://gdriveupload.streamlit.app/", width  = "stretch")
-    #     with col6:
-    #        st.link_button("Open PaymentSlugsUpdate", "https://paymentslugs.streamlit.app/", width  = "stretch")
+         with col1:
+            st.link_button("Open Attendance Sheet", "https://docs.google.com/spreadsheets/d/1rbLW59CGLKxlIBM3d7lNopLWpP5oiD3hddWKRzku7Ow/edit?usp=sharing/", width  = "stretch")
+         with col2:
+            st.link_button("Open L2 Webinar Files", "https://drive.google.com/drive/folders/0ADY0C0Grd3teUk9PVA?ths=true/", width  = "stretch") 
+         with col3:
+            st.link_button("Open Main Data", "https://drive.google.com/drive/folders/13-pSnmkVenS-g693qKd_Txvzq489Zsq4/", width  = "stretch") 
+         with col4:
+            st.link_button("Open Bulk Download Collab", "https://colab.research.google.com/drive/1p_P40tO16BpSfzm7cWfx5N6z-7FkuJJp?usp=sharing/", width  = "stretch") 
+         with col5:
+            st.link_button("Open GdriveUpload", "https://gdriveupload.streamlit.app/", width  = "stretch")
+         with col6:
+            st.link_button("Open L2 Webinar Sheet", "https://docs.google.com/spreadsheets/d/1wUviIGWnfOeTTYW8dlnIspAi2G91mgMiP607i6PGncE/edit?gid=0#gid=0/", width  = "stretch")
 
