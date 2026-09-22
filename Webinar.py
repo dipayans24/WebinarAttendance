@@ -715,7 +715,7 @@ with col1:
 
 if MainDataFileDate and GdriveCredentials and credential_Upload:
     credential_Upload = save_upload(credential_Upload)
-    WebinarDetails = check_session_state("1wUviIGWnfOeTTYW8dlnIspAi2G91mgMiP607i6PGncE", "WebinarDetails", "WebinarDetails", credential_Upload, clearPreviousData)
+    WebinarDetails = check_session_state("1LEUL0QCrOt0wbyEe6kzC_E9UeqEcg5FGrj9JLz0ytVg", "WebinarDetails", "WebinarDetails", credential_Upload, clearPreviousData)
     WebinarDetails = WebinarDetails[(WebinarDetails["Cancelled"] != "Yes") & (WebinarDetails["WebinarID"] != "") & (~WebinarDetails["WebinarID"].isna())]
     WebinarDetails["WebinarID"] = WebinarDetails["WebinarID"].str.replace(r"\W", "", regex=True)
     WebinarDetails.drop_duplicates(subset=WebinarDetails.columns, inplace=True)
@@ -759,16 +759,6 @@ if MainDataFileDate and GdriveCredentials and credential_Upload:
 
                 status.update(label=f"🟢 Updated batch {ProcessBatch}.", state="complete")
 
-        # with st.status("Processing..", expanded=True) as status:
-        #     service = getGdriveService(GdriveCredentials)  # or getGdriveService(delegated_user="owner@yourdomain.com")
-            #filePath, service = getFilefromGdrive('0AHGO663tIOm5Uk9PVA', service, WSDate, clearPreviousData)
-
-        # @title Downloading All Sheets
-        # Remove existing file if it exists to avoid conflicts
-        
-    
-        #st.link_button(f"Go to Sheet- {sheet_id}", f"https://docs.google.com/spreadsheets/d/{sheet_id}/edit?usp=sharing", type = "secondary")
-
              
 else:
 
@@ -786,5 +776,5 @@ else:
          with col5:
             st.link_button("Open GdriveUpload", "https://gdriveupload.streamlit.app/", width  = "stretch")
          with col6:
-            st.link_button("Open L2 Webinar Sheet", "https://docs.google.com/spreadsheets/d/1wUviIGWnfOeTTYW8dlnIspAi2G91mgMiP607i6PGncE/edit?gid=0#gid=0/", width  = "stretch")
+            st.link_button("Open L2 Webinar Sheet", "https://docs.google.com/spreadsheets/d/1LEUL0QCrOt0wbyEe6kzC_E9UeqEcg5FGrj9JLz0ytVg/edit?usp=sharing/", width  = "stretch")
 
